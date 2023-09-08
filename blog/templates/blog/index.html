@@ -1,19 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>DjangoBlog</title>
-</head>
-<body>
-    <h1>Here are the latest blogs:</h1>
+{% extends "blog/layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    <h1 class="mt-2">Here are the latest blogs:</h1>
     {%if posts %}
         {% for post in posts %}
+            <hr/>
             <div>
-                <h2>{{ post.title }}</h2>
-                <p> {{post.body}} </p>
+                <h2 class="mt-3 mb-2">{{ post.title }}</h2>
+                <p class="mb-2"> {{post.body}} </p>
             </div>
         {% endfor %}
     {% else %}
         <p>No blogs have been posted</p>
     {% endif %}
-</body>
-</html>
+{% endblock %}
